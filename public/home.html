@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html ng-app="prueba">
+
+  <head >
+    <title>NodeJS Starter Application</title>
+    <meta charset="utf-8">
+    
+    <link rel="stylesheet" href="stylesheets/styleHome.css">          
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <!-- Angular js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <!-- Bootstrap -->    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="stylesheets/fileinput.min.css">
+    <!-- File input js -->
+    <script src="scripts/ng-file-upload-shim.min.js"></script> <!-- for no html5 browsers support -->
+	<script src="scripts/ng-file-upload.min.js"></script>
+    <!-- Controlador -->
+    <script src= "scripts/Aplicacion.js"></script>
+    
+    <script src= "scripts/bootstrap-filestyle.js"></script>
+    <script src="scripts/fileinput.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+  </head>
+	
+   <body ng-controller="controladorPrueba" style="text-align:center">
+   		<script>
+		  window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '1155154011191352',
+		      xfbml      : true,
+		      version    : 'v2.5'
+		    });
+		  };
+		
+		  (function(d, s, id){
+		     var js, fjs = d.getElementsByTagName(s)[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement(s); js.id = id;
+		     js.src = "//connect.facebook.net/en_US/sdk.js";
+		     fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+		   
+		   function logOut(){
+		  	FB.getLoginStatus(function(response) {
+		        if (response && response.status === 'connected') {
+		            FB.logout(function(response) {
+						window.location.href = "index.html";
+					});
+		        }
+		    });
+		  }
+		  
+	   </script>
+  <div class="flex_row" style="height:10%">
+  	<h1 style="color:#8A8888;text-align:left;margin-left:5%;width:80%">Archi<span style="color:#B34968">Vieux</span></h1>
+  	<button class ="btn" style="background-color:#D0D9DB;color:#B34968;width:10%" onClick="logOut();">Log out</button>
+  </div>
+  <div style="height:50%" id="myCarousel" class="carousel slide carousel_container" data-ride="carousel">
+	  <!-- Indicators -->
+	  <ol class="carousel-indicators">
+	    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	    <li data-target="#myCarousel" data-slide-to="1"></li>
+	    <li data-target="#myCarousel" data-slide-to="2"></li>
+	    <li data-target="#myCarousel" data-slide-to="3"></li>
+	  </ol>
+	
+	  <!-- Wrapper for slides -->
+	  <div class="carousel-inner images_container" role="listbox">
+	    <div class="item" style='background-image:url("/images/home1.jpg")'>
+	    </div>
+	
+	    <div class="item"  style='background-image:url("/images/home2.png")'>
+	    </div>
+	
+	    <div class="item"  style='background-image:url("/images/home3.jpg")'>
+	    </div>
+	
+	    <div class="item active" style="background-color:#8A8888">
+			<h1 style="font-size:60px !important;line-height:300px;margin:0;">Nuestros Servicios</h1>
+	    </div>
+	  </div>
+	
+	  <!-- Left and right controls -->
+	  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+	    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+	    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
+	</div>
+	
+	<div class="flex_row"  style="height:40%">
+		<div style="width:50%;height:100%">
+			<h1 style="color:#B34968">Almacenar archivo</h1>
+			<form action="/upload_files" method="POST" enctype="multipart/form-data" style="text-align:center">
+				<div style="width:60%; margin: 2% auto; margin-top:8%">
+					<input type="file" class="filestyle" data-buttonText="Find file" name="file">
+				</div>
+				<input type="text" class="form-control" style="width:60%; margin:0 auto" name ="location" Placeholder ="Ubicación"/>
+				<input type="submit" style="background-color:#D0D9DB;color:#B34968;margin-top:2%" class="btn" value="Enviar"/>
+			</form>
+		</div>
+		<div style="width:50%;padding-right:40px !important;">
+			<h1 style="color:#B34968">Contenido Base de datos </h1>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nombre Archivo</th>
+						<th>Tipo</th>
+						<th>Ubicación</th>
+						<th>Tamaño</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="object in files">
+						<td>{{object.name}}</td>
+						<td>{{object.type}}</td>
+						<td>{{object.location}}</td>
+						<td>{{object.size}}</td>
+					<tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+   </body>
+</html>

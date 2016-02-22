@@ -1,0 +1,60 @@
+
+
+/* Portrait cellphone */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (orientation: portrait) {
+  	h1{
+		font-size:120px !important;
+	}
+	.slogan_container
+  	{
+  		margin-top:30%;
+  	}
+}
+
+
+/* Landscape  cellphone*/
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (orientation: landscape) {
+	h1{
+		font-size:70px !important;
+	}
+	.slogan_container
+  	{
+  		margin-top:5%;
+  	}
+}
+
+@media 
+  (min-device-width: 800px) 
+  and (max-device-width: 1200px) {
+	h1{
+		font-size:70px !important;
+	}
+	.slogan_container
+  	{
+  		margin-top:5%;
+  	}
+}
+
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px){
+  	h1{
+  		font-size:90px !important;
+  	}
+}
+
+h1{
+    text-align:center;
+    font-family:"Lobster" !important; 
+    font-weight:bold;
+}
+
+span{
+	color:#B34968 !important;
+}

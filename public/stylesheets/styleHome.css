@@ -1,0 +1,106 @@
+/* Portrait cellphone */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (orientation: portrait) {
+  	h1{
+		font-size:20px !important;
+	}
+}
+
+
+/* Landscape  cellphone*/
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (orientation: landscape) {
+	h1{
+		font-size:15px !important;
+	}
+}
+
+@media 
+  (min-device-width: 800px) 
+  and (max-device-width: 1200px) {
+	h1{
+		font-size:20px !important;
+	}
+}
+
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px){
+  	h1{
+  		font-size:30px !important;
+  	}
+}
+
+h1{
+    text-align:center;
+    font-family:"Lobster" !important; 
+}
+
+.images_container{
+	width:700px !important;
+	max-width:700px !important;
+	height:300px !important;
+	max-height:300px ! important;
+}
+
+body,html{
+	height:100%;
+	max-height:100%;
+	background-color:#EDE2CC !important;
+}
+
+.carousel_container{
+	width:700px !important;
+	max-width:700px !important;	
+	height:300px !important;
+	max-height:300px ! important;
+	margin: 0 auto;
+}
+
+.item{
+	width:100%;
+	height:100%;
+	background-size: 100% 100%;
+}
+
+.flex_row{
+	display:flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	align-content:center
+}
+
+td,th{
+	text-align:center !important;
+	font-family: 'Josefin Sans', sans-serif !important;
+}
+
+th{
+	font-weight:bold;
+	font-size:20px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: gray;
+    cursor: inherit;
+    display: block;
+}
